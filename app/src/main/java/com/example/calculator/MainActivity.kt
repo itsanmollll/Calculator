@@ -49,7 +49,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun onAllclearClick(view: View) {}
+    fun onAllclearClick(view: View) {
+
+        binding.dataTv.text = ""
+        binding.resultTv.text = ""
+        stateError = false
+        lastDot = false
+        lastNumeric = false
+        binding.resultTv.visibility = View.GONE
+
+    }
 
 
     fun onOperatorClick(view: View) {}
