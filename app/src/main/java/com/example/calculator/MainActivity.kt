@@ -81,7 +81,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun onClearClick(view: View) {}
+    fun onClearClick(view: View) {
+
+        binding.dataTv.text = ""
+        lastNumeric = false
+
+    }
 
 
     fun onBackClick(view: View) {
