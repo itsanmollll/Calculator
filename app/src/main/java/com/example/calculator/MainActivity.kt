@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputBinding
+import android.widget.Button
 import com.example.calculator.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.Expression
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -32,7 +33,20 @@ class MainActivity : AppCompatActivity() {
     fun onEqualClick(view: View) {}
 
 
-    fun onDigitClick(view: View) {}
+    fun onDigitClick(view: View) {
+
+        if(stateError){
+
+            binding.dataTv.text = (view as Button).text
+        }else {
+            binding.dataTv.append((view as Button).text)
+        }
+
+        lastNumeric = true
+        onEqual()
+
+
+    }
 
 
     fun onAllclearClick(view: View) {}
@@ -46,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onBackClick(view: View) {}
 
-    fun oEqual(){
+    fun onEqual(){
 
         if (lastNumeric && !stateError){
 
@@ -69,9 +83,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
-
-
     }
 
 }
