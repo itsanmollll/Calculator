@@ -30,7 +30,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun onEqualClick(view: View) {}
+    fun onEqualClick(view: View) {
+
+        onEqual()
+        binding.dataTv.text = binding.resultTv.text.toString().drop(1)
+
+    }
 
 
     fun onDigitClick(view: View) {
@@ -61,7 +66,18 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun onOperatorClick(view: View) {}
+    fun onOperatorClick(view: View) {
+
+        if (!stateError && lastNumeric){
+
+            binding.dataTv.append((view as Button).text)
+            lastDot = false
+            lastNumeric = false
+            onEqual()
+
+        }
+
+    }
 
 
     fun onClearClick(view: View) {}
