@@ -10,6 +10,7 @@ import android.widget.Button
 import com.example.calculator.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.Expression
 import net.objecthunter.exp4j.ExpressionBuilder
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,7 +84,26 @@ class MainActivity : AppCompatActivity() {
     fun onClearClick(view: View) {}
 
 
-    fun onBackClick(view: View) {}
+    fun onBackClick(view: View) {
+
+        binding.dataTv.text = binding.dataTv.text.toString().drop(1)
+
+        try {
+            val lastChar = binding.dataTv.text.toString().last()
+
+            if (lastChar.isDigit()){
+
+            }
+        }catch (e : Exception){
+
+            binding.resultTv.text = ""
+            binding.resultTv.visibility = View.GONE
+            Log.e("last char error", e.toString())
+
+
+        }
+
+    }
 
     fun onEqual(){
 
